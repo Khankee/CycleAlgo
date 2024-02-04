@@ -14,15 +14,15 @@ public class Wagon {
 
     private int wgNumber;
     private List<int[]> travels;
-    private List<int[]> info;
+    private List<Integer> gu12;
 
     @Override
     public String toString() {
         return "Wagon{" +
                 "wgNumber=" + wgNumber +
-                "lengths = " + travels.size() + ":" + info.size() +
+                "lengths = " + travels.size() + ":" + gu12 +
                 ", travels=" + Arrays.toString(travels.toArray()) +
-                ", info=" + Arrays.toString(info.toArray()) +
+                ", info=" + gu12 +
                 '}';
     }
 }

@@ -13,7 +13,6 @@ public class Result {
     private int wgNumber;
     private List<Integer> cycles;
     private List<Integer> weights;
-    private int totalDistance;
     private String visualisation;
 
     @Override
@@ -22,7 +21,6 @@ public class Result {
                 "wgNumber=" + wgNumber +
                 ", cycles=" + cycles +
                 ", weights=" + weights +
-                ", totalDistance=" + totalDistance +
                 ", visualisation='" + visualisation + '\'' +
                 '}';
     }

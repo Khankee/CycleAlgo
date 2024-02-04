@@ -22,9 +22,6 @@ public class Data {
     @ExcelCellName("gu12Numbers")
     private int gu12Number;
 
-    @ExcelCellName("distances")
-    private int distance;
-
     @ExcelCellName("nameFrom")
     private String nameFrom;
 

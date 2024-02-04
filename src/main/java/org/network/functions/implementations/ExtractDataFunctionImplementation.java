@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.network.entities.Data;
 import org.network.entities.Wagon;
 import org.network.functions.ExtractDataFunctions;
-import org.network.functions.Printable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +30,6 @@ public class ExtractDataFunctionImplementation implements ExtractDataFunctions {
             int from = data.getDeparture();
             int to = data.getArrival();
 
-            int distance = data.getDistance();
             int gu12 = data.getGu12Number();
 
             String nameFrom = data.getNameFrom();
@@ -41,23 +39,22 @@ public class ExtractDataFunctionImplementation implements ExtractDataFunctions {
             namingStations.putIfAbsent(to, nameTo);
 
             int[] travel = {from, to};
-            int[] info = {gu12, distance};
 
             if(wagons.get(id) == null){
                 ArrayList<int[]> travels = new ArrayList<>();
-                ArrayList<int[]> infos = new ArrayList<>();
+                ArrayList<Integer> gu12s = new ArrayList<>();
 
                 travels.add(travel);
-                infos.add(info);
+                gu12s.add(gu12);
 
-                Wagon wagon = new Wagon(id, travels, infos);
+                Wagon wagon = new Wagon(id, travels, gu12s);
 
                 wagons.put(id,wagon);
                 continue;
             }
             Wagon wagon = wagons.get(id);
             wagon.getTravels().add(travel);
-            wagon.getInfo().add(info);
+            wagon.getGu12().add(gu12);
             wagons.put(id, wagon);
         }
         return wagons;
