@@ -1,40 +1,48 @@
 package org.network;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.poiji.bind.Poiji;
 import org.network.entities.Data;
 import org.network.entities.Result;
 import org.network.entities.Wagon;
-import org.network.functions.CycleFinderAlgorithm;
-import org.network.functions.Printable;
+import org.network.functions.algo.CycleFinderAlgorithm;
 import org.network.functions.implementations.ExtractDataFunctionImplementation;
-import org.network.functions.implementations.MapPrintable;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 public class Main {
 
-    static final String PATH_TO_DATA = "src/main/resources/Data.xls";
-    static List<Data> dataList;
-    static Map<Integer, Wagon> wagons;
-    static Map<Integer, String> namingStations;
+    static final String PATH_TO_DATA_PT1 = "src/main/resources/Data_part-1.xlsx";
+    static final String PATH_TO_DATA_PT2 = "src/main/resources/Data_part-2.xlsx";
+    static final String PATH_TO_RESULT = "src/main/resources/results.json";
     static ExtractDataFunctionImplementation functions;
-    static Printable printable;
+    //static CSVConverter converter;
+    static List<Data> dataListPart1;
+    static List<Data> dataListPart2;
+    static Map<Integer, Wagon> wagons;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        dataList = Poiji.fromExcel(new File(PATH_TO_DATA), Data.class);
-        functions = new ExtractDataFunctionImplementation(namingStations);
-        wagons = functions.extractWagonTravels(dataList);
+        dataListPart1 = Poiji.fromExcel(new File(PATH_TO_DATA_PT1), Data.class);
+        dataListPart2 = Poiji.fromExcel(new File(PATH_TO_DATA_PT2), Data.class);
 
-        printable = new MapPrintable();
+        functions = new ExtractDataFunctionImplementation();
+
+        wagons = functions.extractWagonTravels(dataListPart1);
+        wagons = functions.extractWagonTravels(dataListPart2);
+
         CycleFinderAlgorithm algo = new CycleFinderAlgorithm();
+        List<Result> results = algo.findCycles(wagons);
 
-        List<Result> res = algo.findCycles(wagons, functions.getNamingStations());
-        System.out.println(res.size());
-        System.out.println(res);
-//        printable.printMap(functions.getNamingStations());
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+
+        writer.writeValue(new File(PATH_TO_RESULT), results);
     }
 
 

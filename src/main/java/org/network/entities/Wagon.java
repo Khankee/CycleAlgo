@@ -12,17 +12,16 @@ import java.util.List;
 @AllArgsConstructor
 public class Wagon {
 
-    private int wgNumber;
+    private Integer wgNumber;
     private List<int[]> travels;
-    private List<Integer> gu12;
+    private List<LoopData> miniData;
 
     @Override
     public String toString() {
         return "Wagon{" +
                 "wgNumber=" + wgNumber +
-                "lengths = " + travels.size() + ":" + gu12 +
-                ", travels=" + Arrays.toString(travels.toArray()) +
-                ", info=" + gu12 +
+                "lengths = " + travels.size() +
+                ",travels=" + Arrays.toString(travels.toArray()) +
                 '}';
     }
 }

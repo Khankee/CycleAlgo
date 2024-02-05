@@ -1,27 +1,25 @@
 package org.network.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Result {
-    private int wgNumber;
-    private List<Integer> cycles;
-    private List<Integer> weights;
-    private String visualisation;
 
-    @Override
-    public String toString() {
-        return "\n Result{" +
-                "wgNumber=" + wgNumber +
-                ", cycles=" + cycles +
-                ", weights=" + weights +
-                ", visualisation='" + visualisation + '\'' +
-                '}';
-    }
+    @JsonProperty("wgNumber")
+    private Integer wgNumber;
+
+    @JsonProperty("cycles")
+    private List<Integer> cycles;
+
+    @JsonProperty("loopData")
+    private List<LoopData> loopData;
 }
