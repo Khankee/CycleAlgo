@@ -8,7 +8,7 @@ import org.network.entities.Data;
 import org.network.entities.Result;
 import org.network.entities.Wagon;
 import org.network.functions.algo.CycleFinderAlgorithm;
-import org.network.functions.implementations.ExtractDataFunctionImplementation;
+import org.network.functions.implementations.ExtractDataImplementation;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,8 +20,7 @@ public class Main {
     static final String PATH_TO_DATA_PT1 = "src/main/resources/Data_part-1.xlsx";
     static final String PATH_TO_DATA_PT2 = "src/main/resources/Data_part-2.xlsx";
     static final String PATH_TO_RESULT = "src/main/resources/results.json";
-    static ExtractDataFunctionImplementation functions;
-    //static CSVConverter converter;
+    static ExtractDataImplementation functions;
     static List<Data> dataListPart1;
     static List<Data> dataListPart2;
     static Map<Integer, Wagon> wagons;
@@ -31,7 +30,7 @@ public class Main {
         dataListPart1 = Poiji.fromExcel(new File(PATH_TO_DATA_PT1), Data.class);
         dataListPart2 = Poiji.fromExcel(new File(PATH_TO_DATA_PT2), Data.class);
 
-        functions = new ExtractDataFunctionImplementation();
+        functions = new ExtractDataImplementation();
 
         wagons = functions.extractWagonTravels(dataListPart1);
         wagons = functions.extractWagonTravels(dataListPart2);
@@ -44,6 +43,4 @@ public class Main {
 
         writer.writeValue(new File(PATH_TO_RESULT), results);
     }
-
-
 }

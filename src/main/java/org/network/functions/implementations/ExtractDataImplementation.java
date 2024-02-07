@@ -3,7 +3,7 @@ package org.network.functions.implementations;
 import org.network.entities.Data;
 import org.network.entities.LoopData;
 import org.network.entities.Wagon;
-import org.network.functions.ExtractDataFunctions;
+import org.network.functions.ExtractData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public record ExtractDataFunctionImplementation() implements ExtractDataFunctions {
+public record ExtractDataImplementation() implements ExtractData {
 
     @Override
     public Map<Integer, Wagon> extractWagonTravels(List<Data> dataList) {
