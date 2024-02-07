@@ -14,6 +14,7 @@ import java.util.Map;
 
 public interface ExtractData {
 
+    @SuppressWarnings("unused")
     Map<Integer, Wagon> extractWagonTravels(List<Data> dataList);
 
 }

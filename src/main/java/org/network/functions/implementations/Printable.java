@@ -14,6 +14,7 @@ import java.util.Map;
  * Add own methods here.
  */
 
+@SuppressWarnings("unused")
 public class Printable {
 
     public void printMap(Map<Integer, String> map) {

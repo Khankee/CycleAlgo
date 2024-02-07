@@ -15,6 +15,7 @@ public class SerializationUtil {
     /**
      * STATIC SERIALIZE, CUSTOM METHOD TO SERIALIZE MAP OF WGNUMBER(INTEGER) AND WAGON OBJECTS INTO SERIAL.BIN
      */
+    @SuppressWarnings("unused")
     public static void serialize(Map<Integer, Wagon> wagons, String FILE_PATH) throws IOException{
         System.out.println("we are insight of method serialize");
         try (FileOutputStream fos = new FileOutputStream(FILE_PATH);
@@ -26,7 +27,8 @@ public class SerializationUtil {
     /**
      * STATIC DESERIALIZE, CUSTOM METHOD TO DESERIALIZE MAP OF WGNUMBER(INTEGER) AND WAGON OBJECTS FROM SERIAL.BIN
      */
-    @SuppressWarnings("unchecked")
+
+    @SuppressWarnings({"unchecked", "unused"})
     public static Map<Integer, Wagon> deserialize(String FILE_PATH) throws IOException, ClassNotFoundException {
         try (FileInputStream fis = new FileInputStream(FILE_PATH);
              ObjectInputStream ois = new ObjectInputStream(fis)) {
