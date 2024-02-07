@@ -10,14 +10,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * @author: Kenes Arukhan
+ * @date: 02.02.2024
+ * @email: Arukhan.kenes@gmail.com
+  */
 public record ExtractDataImplementation() implements ExtractData {
 
+    /**
+     * @explanation: this method transforms from list of Data objects to Map with
+     *  <br>K = Wagon unique number
+     *  <br>V = Wagon object
+     *  <br>Basically populates all wagon's routes from A to B stations in a List of int[]
+     *  and also populates LoopData object. (see in a package - entities.Data,LoopData,Wagon)
+     */
     @Override
     public Map<Integer, Wagon> extractWagonTravels(List<Data> dataList) {
         Map<Integer, Wagon> wagons = new HashMap<>();
 
         for (Data data : dataList) {
+            //MiniData is ONE unit of LoopData to share all information of ONE travel A to B
             LoopData miniData = new LoopData();
 
             int id = data.getWgNumber();
@@ -27,7 +39,6 @@ public record ExtractDataImplementation() implements ExtractData {
 
             int from = data.getDeparture();
             int to = data.getArrival();
-
 
             String dispatchNumber = data.getDispatchNumber();
 

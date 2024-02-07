@@ -6,6 +6,12 @@ import org.network.entities.Wagon;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author: Kenes Arukhan
+ * @date: 02.02.2024
+ * @email: Arukhan.kenes@gmail.com
+ */
+
 public interface ExtractData {
 
     Map<Integer, Wagon> extractWagonTravels(List<Data> dataList);
