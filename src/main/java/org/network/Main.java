@@ -15,6 +15,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author: Kenes Arukhan
+ * @date: 02.02.2024
+ * @email: Arukhan.kenes@gmail.com
+ */
+@SuppressWarnings("unused")
 public class Main {
 
     static final String PATH_TO_DATA_PT1 = "src/main/resources/Data_part-1.xlsx";

@@ -1,47 +1,49 @@
-# Cyclic Wagon Travels Finder
+# Алгоритм поиска Циклических Путешествий Вагонов
+![попробуй](assets/images/header.webp)
 
-## Description
+## Описание
 
-This project is designed to identify cyclic travels of wagons between stations, leveraging data processed from Excel files. Each wagon's journey is analyzed to detect cycles, which are defined as a return to the initial station. The algorithm efficiently processes large datasets, and as of February 8, 2024, it has analyzed 1,800,000 rows from two Excel files, identifying 229,000 cyclic movements.
+Проект предназначен для идентификации циклических путешествий вагонов между станциями, используя данные, обработанные из файлов Excel. Путешествие каждого вагона анализируется для выявления циклов, определенных как возвращение на исходную станцию. Алгоритм эффективно обрабатывает большие наборы данных, и по состоянию на 8 февраля 2024 года было проанализировано 1,800,000 строк из двух файлов Excel, идентифицировано 229,000 циклических движений.
 
-## Getting Started
+## Начало работы
 
-### Dependencies
+### Зависимости
 
-- Java JDK 11 or higher
-- Apache POI for Excel file processing
-- Jackson for JSON handling
-- Any IDE like IntelliJ IDEA or Eclipse
+- Java JDK 11 или выше
+- Apache POI для обработки файлов Excel
+- Jackson для обработки JSON
+- Любая среда разработки, например, IntelliJ IDEA или Eclipse
 
-### Installation
+### Установка
 
-1. Clone the repository to your local machine.
-2. Ensure Java JDK 11 or higher is installed and properly set up.
-3. Import the project into your IDE.
-4. Resolve any dependencies, such as Apache POI and Jackson, which may require adding to your project's build path or `pom.xml` file if using Maven.
+1. Клонируйте репозиторий на локальный компьютер.
+2. Убедитесь, что Java JDK 11 или выше установлена и правильно настроена.
+3. Импортируйте проект в вашу среду разработки.
+4. Разрешите все зависимости, такие как Apache POI и Jackson, что может потребовать добавления в путь сборки проекта или файл `pom.xml`, если используется Maven.
 
-### Excel File Configuration
+### Конфигурация Excel файла
 
-To run the algorithm, your Excel file columns must be named according to the `Data` object fields, as follows:
+Для запуска алгоритма колонки вашего файла Excel должны быть названы в соответствии с полями объекта `Data`, следующим образом:
 
-- `Номер вагона` (Wagon Number)
-- `Станция отправления` (Departure Station)
-- `Станция назначения` (Destination Station)
-- `Код станции отправления` (Departure Station Code)
-- `Код станции назначения` (Destination Station Code)
-- `Номер отправки` (Dispatch Number)
-- `Дата приема груза к перевозке` (Date of Dispatch)
-- `Дата раскредитации` (Date of Delivery)
+- `Номер вагона`
+- `Станция отправления`
+- `Станция назначения`
+- `Код станции отправления`
+- `Код станции назначения`
+- `Номер отправки`
+- `Дата приема груза к перевозке`
+- `Дата раскредитации`
 - `distance`
-- `Вид отправки` (Type of Dispatch)
+- `Вид отправки`
 
-### Usage
+### Использование
 
-1. Place your Excel files in the `resources` folder.
-2. In `main`, adjust paths as needed and call the `extractWagonTravels` method from `ExtractDataFunctionImplementation` class to process the data.
-3. Optionally, use the serialization and deserialization functions to save and load the processed data, avoiding reprocessing for each run.
-4. Run `findCycles` algorithm to identify cyclic wagon travels. The results will be serialized into `results.json` and stored in the `resources` folder.
+1. Разместите ваши файлы Excel в папке `resources`.
+2. В `main` настройте пути по мере необходимости и вызовите метод `extractWagonTravels` из класса `ExtractDataFunctionImplementation` для обработки данных.
+3. При необходимости используйте функции сериализации и десериализации для сохранения и загрузки обработанных данных, избегая повторной обработки при каждом запуске.
+4. Запустите алгоритм `findCycles` для идентификации циклических путешествий вагонов. Результаты будут сериализованы в `results.json` и сохранены в папке `resources`.
 
-## Contributing
+## Вклад
 
-Your contributions are welcome! If you have suggestions for improving the algorithm or extending its capabilities, please feel free to fork the repository, make your changes, and submit a pull request.
+Ваши предложения по улучшению алгоритма или расширению его возможностей приветствуются!
+Если у вас есть вопросы или любые запросы, то обращайтесь по почте `Arukhan.kenes@gmail.com`
