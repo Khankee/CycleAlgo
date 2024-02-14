@@ -10,8 +10,8 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString
+@AllArgsConstructor
 public class Result {
 
     @JsonProperty("wgNumber")

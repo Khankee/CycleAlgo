@@ -1,11 +1,17 @@
 package org.network.functions.algo;
 
+import org.jetbrains.annotations.NotNull;
 import org.network.entities.LoopData;
 import org.network.entities.Result;
 import org.network.entities.Wagon;
 
 import java.util.*;
 
+/**
+ * @author: Kenes Arukhan
+ * @date: 05.02.2024
+ * @email: Arukhan.kenes@gmail.com
+ */
 public class CycleFinderAlgorithm {
 
     private final List<Integer> cycles = new ArrayList<>();
@@ -13,13 +19,12 @@ public class CycleFinderAlgorithm {
     private final HashSet<Integer> visited = new HashSet<>();
     private final List<Result> results = new ArrayList<>();
 
-    private void reset() {
-        cycles.clear();
-        visited.clear();
-        loopData.clear();
-    }
+    /**
+     * @explanation: magic starts here
+     * <br> Speed O(n)
+     */
+    public List<Result> findCycles(@NotNull Map<Integer, Wagon> wagons) {
 
-    public List<Result> findCycles(Map<Integer, Wagon> wagons) {
         for (Wagon wagon : wagons.values()) {
             int wgNumber = wagon.getWgNumber();
             List<int[]> travels = wagon.getTravels();
@@ -66,6 +71,12 @@ public class CycleFinderAlgorithm {
         }
 
         return results;
+    }
+
+    private void reset() {
+        cycles.clear();
+        visited.clear();
+        loopData.clear();
     }
 
     private void cleanCycle() {
