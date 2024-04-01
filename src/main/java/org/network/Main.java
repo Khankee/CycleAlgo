@@ -26,7 +26,7 @@ public class Main {
     static final String PATH_TO_DATA_PT1 = "src/main/resources/Data_part-1.xlsx";
     static final String PATH_TO_DATA_PT2 = "src/main/resources/Data_part-2.xlsx";
     static final String PATH_TO_RESULT = "src/main/resources/results.json";
-    static final String PATH_TO_SERIALIZED_FILE = "src/main/resources/serializedObjects/serial.bin";
+    static final String PATH_TO_SERIALIZED_FILE = "src/main/resources/serializedObjects/.serial.bin";
     static ExtractDataImplementation functions;
     static List<Data> dataListPart1;
     static List<Data> dataListPart2;
@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         /*
-          Parse Excel and serialize data into ...src/main/resources/serializedObjects/serial.bin
+          Parse Excel and serialize data into ...src/main/resources/serializedObjects/.serial.bin
         */
 
         /*
